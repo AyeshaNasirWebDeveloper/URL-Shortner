@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express";
 import mongoose from "mongoose";
 import { shortUrl, getOriginalUrl } from "./Controllers/url.mjs";
+import "dotenv/config"
 
 const app = express();
 
@@ -10,7 +11,7 @@ app.use(express.urlencoded({extended:true}))
 // Mongoose Setup
 mongoose
   .connect(
-    "mongodb+srv://ansonline68:4gtLQaUZgJwbFywF@cluster0.u03w7.mongodb.net/",
+    process.env.MONGODBURL,
     {
       dbName: "NodeJS_Mastery",
     }
