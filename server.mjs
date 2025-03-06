@@ -3,7 +3,20 @@ import mongoose from "mongoose";
 import { shortUrl, getOriginalUrl } from "./Controllers/url.mjs";
 import "dotenv/config"
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Set up __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
+
+// Set the views directory
+app.set("views", path.join(__dirname, "views"));
+
+// Set EJS as the view engine
+app.set("view engine", "ejs");
 
 // For Getting Body's Data 
 app.use(express.urlencoded({extended:true}))
