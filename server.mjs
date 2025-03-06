@@ -30,7 +30,7 @@ app.post('/short', shortUrl)
 // Dynamic Routing to redirect for long url from short url
 app.get("/:shortCode", getOriginalUrl)
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () =>
   console.log(`Server is running sucessfully on port ${port}`)
 );
